@@ -1,18 +1,57 @@
-#["Human Activity Recognition Using Smartphones"](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) transformation cookbook
 
 (high level description here, for details go to inline comments)
 
-1. Column names for data were loaded from features.txt and where cleaned-up
-2. Logical vector was created with columns to keep by parsing column names via regex.
-   Only columns with mean() and std() functions remain.
-   MeanFreq and Angle functions where omitted
-3. Train dataset was loaded, unneeded columns removed.
-   Activity and subjects were loaded as well and converted to factors
-   Activiy, subjects and function values were binded into single dataset
-4. The same was done for test dataset, after that both datasets were merged and ther result exported as final.txt
-5. New dataset was created for calculating means of mean() and std() functions from first tidy dataset. To do so
-   - first dataset was melted with subject and activity as identifiers
-   - melted dataset was casted to dataframe using mean() as cast function to calculate means of variables
-   - resulting dataset was exported as final2.txt
+["Human Activity Recognition Using Smartphones"]
+	(http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) transformation cookbook
+
+
+The scrip has five functions:
+
+1.- MergesTrainingData(): Get clean test data into the data frame: trainData
+	Read file "x_train.txt" into the data frame ->				x_train
+	Read file "y_train.txt" into the data frame -> 				Activity
+	Read file "subject_train.txt" into the data frame 			subject_train
+	Read file "features.txt" into the data frame				features
+	Add, into "testData", the columns of the data frames: 		subject_train, y_train, Activity
+	Add header to "testData" from features plus the names:		"Subject" and "ActivityID"
+	
+	Read file "activity_labels.txt" into the data frame			ActivityNames
+	Add header to the data frame (ActivityID", "Activity)		ActivityNames
+	
+	Merge "testData" and "activityNames" by "ActivityID" into	trainData
+    Delete column "ActivityID" of the data frame "trainData"
+    Return (trainData)
+	
+2.- MergesTestData(): Get clean test data into the data frame: 	testData
+	Read file "x_test.txt" into the data frame ->				x_test
+	Read file "y_test.txt" into the data frame -> 				Activity
+	Read file "subject_test.txt" into the data frame 			subject_test
+	Read file "features.txt" into the data frame				features
+	Add, into "testData", the columns of the data frames: 		subject_test, x_test, Activity
+	Add header to "testData" from features plus the names:		"Subject" and "ActivityID"
+	
+	Read file "activity_labels.txt" into the data frame			ActivityNames
+	Add header to the data frame (ActivityID", "Activity)		ActivityNames
+	
+	Merge "testData" and "activityNames" by "ActivityID" into	testData
+    Delete column "ActivityID" of the data frame "testData"
+    Return (testData)
+	
+	
+3. AppendRows(): Add by rows the data frames "trainData", "testData"
+	Gets trainData
+	Gets testData
+	Adds the rows of the data frames "trainData", "testData" into the data frame:	"appendedData"
+    Return (appendedData)
+	
+	
+4. EstractMeanStd(): Get the Result using melting and casting.
+    Extracts variables with mean and standard deviation only into 	"dataFinal"
+    Rearranges data frame "dataFinal" and make the new one "tidydatameans" with the means of the variables by activity and subject
+    Return (tidydatameans)
+
+5. run_analysis(): Execute the script
+	Get cleanedData calling "EstractMeanStd()" into the data frame "cleanedData"
+	Write to file the data frame "cleanedData"
 
 More on melting and casting [here](http://tgmstat.wordpress.com/2013/10/31/reshape-and-aggregate-data-with-the-r-package-reshape2/)
