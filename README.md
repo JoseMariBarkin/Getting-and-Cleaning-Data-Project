@@ -1,6 +1,6 @@
 
 
-# SCRIPT DESCRIPTION.
+# Run_Analysis SCRIPT DESCRIPTION.
 
 This file descrives the script that extract the requiered data as is especified on the project: "Merging and Organizing Data" of the course "GETTING AND CLEANING DATA" of the University Johns Hopkins.
 
