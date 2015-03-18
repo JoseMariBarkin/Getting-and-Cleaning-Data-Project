@@ -28,8 +28,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 
 
-
-
+```
 [1]    	"Activity" 
             Name of the type of activity
 				1 WALKING 
@@ -38,6 +37,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
                 4 SITTING 
                 5 STANDING 
                 6 LAYING 
+```
 [2]		"Subject" 
             The subject who performed the activity
                 1	subject_train
