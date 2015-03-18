@@ -4,13 +4,10 @@
 
 This file descrives the script that extract the requiered data as is especified on the project: "Merging and Organizing Data" of the course "GETTING AND CLEANING DATA" of the University Johns Hopkins.
 
-*The script has five functions.
-
-*Input files to get data: x_train.txt, y_train.txt, subject_train.txt, features.txt, activity_labels.tx.
-
-*Output file: tidyDataSet.txt.
-
-*Description of variables of the output files is in the file: codebook.md 
+* The script has five functions.
+* Input files to get data: x_train.txt, y_train.txt, subject_train.txt, features.txt, activity_labels.tx.
+* Output file: tidyDataSet.txt.
+* Description of variables of the output files is in the file: codebook.md 
 
 
 ----
