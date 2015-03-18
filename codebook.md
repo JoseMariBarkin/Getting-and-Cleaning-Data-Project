@@ -4,15 +4,20 @@
 Information about the original data set:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
+---
 ## DATA DICTIONARY 
-Human Activity Recognition Using Smartphones
+**Human Activity Recognition Using Smartphones.**
 
-Variables of the "tidyDataSet". Each variable contains the value of the average for each activity and each subject.
+**Variables of the "tidyDataSet". Each variable contains the value of the average for each activity and each subject.**
 
-s
-e
-e
-e
+
+    dd f f f
+    dfdf
+    
+    fdfff
+    
+
+
 
 
 
