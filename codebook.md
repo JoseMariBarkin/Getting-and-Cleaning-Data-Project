@@ -10,10 +10,12 @@ Human Activity Recognition Using Smartphones
 Variables of the "tidyDataSet". Each variable contains the value of the average for each activity and each subject.
 
 s
-s
-s
-s
-s
+e
+e
+e
+
+
+
 
 
 
