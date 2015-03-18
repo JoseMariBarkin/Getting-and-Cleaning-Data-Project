@@ -2,52 +2,55 @@
 
 # GETTING AND CLEANING DATA PROJECT
 
+Information about the original data set:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
 ## DATA DICTIONARY 
-## Human Activity Recognition Using Smartphones
+Human Activity Recognition Using Smartphones
 
 Variables of the "tidyDataSet". Each variable contains the value of the average for each activity and each subject.
 
 
 [1]		"Activity"
-			 Name of the type of activity
-				1 WALKING
-				2 WALKING_UPSTAIRS
-				3 WALKING_DOWNSTAIRS
-				4 SITTING
-				5 STANDING
-				6 LAYING
+            Name of the type of activity
+                1 WALKING
+                2 WALKING_UPSTAIRS
+                3 WALKING_DOWNSTAIRS
+                4 SITTING
+                5 STANDING
+                6 LAYING
 [2]		"Subject"
-			The subject who performed the activity
-				1	subject_train
-				2	subject_test
-				3	subject_train
-				4	subject_test
-				5	subject_train
-				6	subject_train
-				7	subject_train
-				8	subject_train
-				9	subject_test
-				10	subject_test
-				11	subject_train
-				12	subject_test
-				13	subject_test
-				14	subject_train
-				15	subject_train
-				16	subject_train
-				17	subject_train
-				18	subject_test
-				19	subject_train
-				20	subject_test
-				21	subject_train
-				22	subject_train
-				23	subject_train
-				24	subject_test
-				25	subject_train
-				26	subject_train
-				27	subject_train
-				28	subject_train
-				29	subject_train
-				30	subject_train
+            The subject who performed the activity
+                1	subject_train
+                2	subject_test
+                3	subject_train
+                4	subject_test
+                5	subject_train
+                6	subject_train
+                7	subject_train
+                8	subject_train
+                9	subject_test
+                10	subject_test
+                11	subject_train
+                12	subject_test
+                13	subject_test
+                14	subject_train
+                15	subject_train
+                16	subject_train
+                17	subject_train
+                18	subject_test
+                19	subject_train
+                20	subject_test
+                21	subject_train
+                22	subject_train
+                23	subject_train
+                24	subject_test
+                25	subject_train
+                26	subject_train
+                27	subject_train
+                28	subject_train
+                29	subject_train
+                30	subject_train
 [3]		"tBodyAcc-mean()-X"
 [4]		"tBodyAcc-mean()-Y"
 [5]		"tBodyAcc-mean()-Z"
@@ -128,5 +131,3 @@ Variables of the "tidyDataSet". Each variable contains the value of the average 
 [80]	"fBodyBodyGyroMag-std()"          
 [81]	"fBodyBodyGyroJerkMag-std()"
 
-**For more information about the original data set:**
-**(http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)**
