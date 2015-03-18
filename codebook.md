@@ -13,6 +13,12 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
     dd f f f
 [1]     "Activity"
+            1 WALKING
+            2
+            3
+            4
+            5
+            6
     
     fdfff
     
