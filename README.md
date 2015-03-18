@@ -1,6 +1,6 @@
 
 
-# Run_Analysis SCRIPT DESCRIPTION.
+# Run_Analysis, Script Description.
 
 This file descrives the script that extract the requiered data as is especified on the project: "Merging and Organizing Data" of the course "GETTING AND CLEANING DATA" of the University Johns Hopkins.
 
@@ -10,7 +10,7 @@ This file descrives the script that extract the requiered data as is especified 
 *Description of variables of the output files is in the file: codebook.md 
 
 ----
-## SCRIPT FUNCTIONS
+## Script functions
 
 1.- MergesTrainingData(): Get clean test data into the data frame: trainData
 	Read file "x_train.txt" into the data frame ->				x_train
