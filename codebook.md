@@ -10,15 +10,15 @@ Human Activity Recognition Using Smartphones
 Variables of the "tidyDataSet". Each variable contains the value of the average for each activity and each subject.
 
 
-[1]    	"Activity"
-			Name of the type of activity
-				1 WALKING
-				2 WALKING_UPSTAIRS
-                3 WALKING_DOWNSTAIRS
-                4 SITTING
-                5 STANDING
-                6 LAYING
-[2]		"Subject"
+[1]    	"Activity" 
+            Name of the type of activity
+				1 WALKING 
+                2 WALKING_UPSTAIRS 
+                3 WALKING_DOWNSTAIRS 
+                4 SITTING 
+                5 STANDING 
+                6 LAYING 
+[2]		"Subject" 
             The subject who performed the activity
                 1	subject_train
                 2	subject_test
