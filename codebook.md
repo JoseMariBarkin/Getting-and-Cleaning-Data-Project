@@ -4,7 +4,6 @@
 Information about the original data set:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-## DATA DICTIONARY 
 
 ```
 **Human Activity Recognition Using Smartphones.**
@@ -14,6 +13,8 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 ```
 
 ---
+## DATA DICTIONARY 
+
 
 [1]    	"Activity" 
             Name of the type of activity
