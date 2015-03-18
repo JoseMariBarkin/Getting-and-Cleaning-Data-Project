@@ -12,14 +12,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 
     dd f f f
-[1]     "Activity
-            Name of the type of activity
-    			1 WALKING 
-                2 WALKING_UPSTAIRS 
-                3 WALKING_DOWNSTAIRS 
-                4 SITTING 
-                5 STANDING 
-                6 LAYING
+[1]     "Activity"
     
     fdfff
     
