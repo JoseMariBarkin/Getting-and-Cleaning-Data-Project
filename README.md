@@ -1,11 +1,16 @@
 
-(high level description here, for details go to inline comments)
 
-["Human Activity Recognition Using Smartphones"]
-	(http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) transformation cookbook
+# SCRIPT DESCRIPTION.
 
+This file descrives the script that extract the requiered data as is especified on the project: "Merging and Organizing Data" of the course "GETTING AND CLEANING DATA" of the University Johns Hopkins.
 
-The scrip has five functions:
+*The script has five functions. 
+*Input files to get data: x_train.txt, y_train.txt, subject_train.txt, features.txt, activity_labels.tx.
+*Output file: tidyDataSet.txt.
+*Description of variables of the output files is in the file: codebook.md 
+
+----
+## SCRIPT FUNCTIONS
 
 1.- MergesTrainingData(): Get clean test data into the data frame: trainData
 	Read file "x_train.txt" into the data frame ->				x_train
@@ -52,6 +57,7 @@ The scrip has five functions:
 
 5. run_analysis(): Execute the script
 	Get cleanedData calling "EstractMeanStd()" into the data frame "cleanedData"
-	Write to file the data frame "cleanedData"
+	Write to file the data frame "tidyDataSet.txt"
+
 
 More on melting and casting [here](http://tgmstat.wordpress.com/2013/10/31/reshape-and-aggregate-data-with-the-r-package-reshape2/)
