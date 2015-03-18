@@ -11,23 +11,6 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 **Variables of the "tidyDataSet". Each variable contains the value of the average for each activity and each subject.**
 
 
-    dd f f f
-[1]     "Activity"
-            1 WALKING
-            2
-            3
-            4
-            5
-            6
-    
-    fdfff
-    
-
-
-
-
-
-
 ```
 [1]    	"Activity" 
             Name of the type of activity
@@ -37,7 +20,6 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
                 4 SITTING 
                 5 STANDING 
                 6 LAYING 
-```
 [2]		"Subject" 
             The subject who performed the activity
                 1	subject_train
@@ -150,4 +132,5 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 [80]	"fBodyBodyGyroMag-std()"          
 [81]	"fBodyBodyGyroJerkMag-std()"
 
+```
 
