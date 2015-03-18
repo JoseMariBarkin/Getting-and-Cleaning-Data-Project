@@ -1,17 +1,20 @@
 
-# GETTING AND CLEANING DATA PROJECT
-
-Information about the original data set:
-
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+## GETTING AND CLEANING DATA PROJECT
 
 
 ---
-## DATA DICTIONARY 
+### DATA DICTIONARY 
 
-Variables of the "tidyDataSet". 
+This dictionary contains variables of the "tidyDataSet" data frame obtained when is executed the script of the project. 
 
 Each variable contains the value of the average for each activity and each subject.
+
+
+
+__More information about the original data set:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones__
+
 
 ```
 [1]    	"Activity" 
