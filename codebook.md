@@ -11,9 +11,9 @@ Each variable contains the value of the average for each activity and each subje
 
 
 
-__More information about the original data set:
+__More information about the original data set:__
 
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones__
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 
 ```
