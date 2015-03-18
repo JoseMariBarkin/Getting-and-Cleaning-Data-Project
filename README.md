@@ -12,6 +12,7 @@ This file descrives the script that extract the requiered data as is especified 
 ----
 ## Script functions
 
+```
 1.- MergesTrainingData(): Get clean test data into the data frame: trainData
 	Read file "x_train.txt" into the data frame ->				x_train
 	Read file "y_train.txt" into the data frame -> 				Activity
@@ -59,5 +60,6 @@ This file descrives the script that extract the requiered data as is especified 
 	Get cleanedData calling "EstractMeanStd()" into the data frame "cleanedData"
 	Write to file the data frame "tidyDataSet.txt"
 
+```
 
-More on melting and casting [here](http://tgmstat.wordpress.com/2013/10/31/reshape-and-aggregate-data-with-the-r-package-reshape2/)
+__More on melting and casting__ [here](http://tgmstat.wordpress.com/2013/10/31/reshape-and-aggregate-data-with-the-r-package-reshape2/)
