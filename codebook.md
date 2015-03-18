@@ -12,7 +12,7 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 
 
     dd f f f
-    dfdf
+[1]        "Activity"
     
     fdfff
     
