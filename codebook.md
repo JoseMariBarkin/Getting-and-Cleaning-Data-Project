@@ -2,20 +2,18 @@
 # GETTING AND CLEANING DATA PROJECT
 
 Information about the original data set:
+
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-
-```
-**Human Activity Recognition Using Smartphones.**
-
-**Variables of the "tidyDataSet". Each variable contains the value of the average for each activity and each subject.**
-
-```
 
 ---
 ## DATA DICTIONARY 
 
+Variables of the "tidyDataSet". 
 
+Each variable contains the value of the average for each activity and each subject.
+
+```
 [1]    	"Activity" 
             Name of the type of activity
 				1 WALKING 
@@ -136,5 +134,5 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 [80]	"fBodyBodyGyroMag-std()"          
 [81]	"fBodyBodyGyroJerkMag-std()"
 
-
+```
 
