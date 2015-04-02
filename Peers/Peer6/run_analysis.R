@@ -1,96 +1,70 @@
-################################################################################
-## Download, unzip and clean up data files                                    ##
-################################################################################
+## Load the dplyr library, which provides a lot of convenient methods to
+## manipulate tables
+library(dplyr)
 
-working.dir = getwd()
-file.url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-zip.file = "./getdata-projectfiles-UCI HAR Dataset.zip"
-unzip.dir = "./UCI HAR Dataset"
-unzip.dir.path = "/UCI HAR Dataset/"
 
-if (file.exists(zip.file) == FALSE) {
-    download.file(file.url, destfile = zip.file)    
-}
+# Load "lookup" tables, their values are useful to describe codified values in
+# other tables
+features <- read.table('features.txt')
+activities <- read.table('activity_labels.txt')
 
-if (file.exists(unzip.dir) == FALSE) {
-    unzip(zip.file)
-}
-    
-suppressWarnings(file.remove("./getdata-projectfiles-UCI HAR Dataset.zip")) ##  delete original zip
+# Load activity data for training & test
+ytrain <- read.table('train/Y_train.txt')
+ytest <- read.table('test/Y_test.txt')
 
-################################################################################
-## Load train, test, subject, features and activities files                   ##
-################################################################################
+# Load subject data
+stest <- read.table('test/subject_test.txt')
+strain <- read.table('train/subject_train.txt')
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "train/X_train.txt")) == TRUE) {
-    x.train <- read.table(paste0(working.dir, unzip.dir.path, "train/X_train.txt"))
-}
+# Load "measures" data as a regular table
+xtestraw <- read.table('test/X_test.txt')
+xtrainraw <- read.table('train/X_train.txt')
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "train/y_train.txt")) == TRUE) {
-    y.train <- read.table(paste0(working.dir, unzip.dir.path, "train/y_train.txt"))    
-}
+## STEP 1
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "train/subject_train.txt")) == TRUE) {
-    subject.train <- read.table(paste0(working.dir, unzip.dir.path, "train/subject_train.txt"))    
-}
+y_all <- rbind(ytest, ytrain)
+s_all <- rbind(stest, strain)
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "test/X_test.txt")) == TRUE) {
-    x.test <- read.table(paste0(working.dir, unzip.dir.path, "test/X_test.txt"))    
-}
+# Create a tbl data frame (from package dplyr) to have powerful functions to
+# manage data and structure
+x_all <- tbl_df(rbind(xtestraw, xtrainraw))
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "test/y_test.txt"))) {
-    y.test <- read.table(paste0(working.dir, unzip.dir.path, "test/y_test.txt"))    
-}
+## STEP 3 & 4
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "test/subject_test.txt")) == TRUE) {
-    subject.test <- read.table(paste0(working.dir, unzip.dir.path, "test/subject_test.txt")) 
-}
+# I've decided to put good names to columns before going further
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "features.txt")) == TRUE) {
-    features <- read.table(paste0(working.dir, unzip.dir.path, "features.txt"))
-}
+# Set a good naming for columns
+names(y_all)[1] <- "Activity"
 
-if (file.exists(paste0(working.dir, unzip.dir.path, "activity_labels.txt")) == TRUE) {
-    activities <- read.table(paste0(working.dir, unzip.dir.path, "activity_labels.txt"))
-}
+# Replace the activity code with the activity name
+y_all$Activity <- activities$V2[y_all$Activity]
 
-################################################################################
-## 1.  Merge the data files                                                   ##
-################################################################################
+# Set a good naming for columns
+names(s_all)[1] <- "Subject"
 
-x.merged <- rbind(x.train, x.test)
-y.merged <- rbind(y.train, y.test)
-subject.merged <- rbind(subject.train, subject.test)
+# Rename columns in data tables with their descriptive name from the features
+# table. Ensure all columns have a valid & unique name
+names(x_all) <- make.names(as.character(features[paste("V",features$V1, sep="") == names(x_all),2]), unique=TRUE)
+names(x_all) <- gsub("\\.\\.\\.", ".", names(x_all))
+names(x_all) <- gsub("\\.\\.", ".", names(x_all))
+names(x_all) <- sub("\\.\\.$", "", names(x_all))
+names(x_all) <- sub("\\.$", "", names(x_all))
+names(x_all) <- sub("^t", "time.", names(x_all))
+names(x_all) <- sub("^f", "frequency.", names(x_all))
 
-################################################################################
-## 2.  Extract only measurements on mean and std dev for each measurement     ##
-################################################################################
+## STEP 2
 
-features.indices <- (grep("-mean\\(\\)|-std\\(\\)", features[, 2]))
-x.merged.abridged <- x.merged[, features.indices]
+# Select only columns with a mean or standard deviation data
+x_allSelected <- select(x_all, contains('mean'), contains('std'))
 
-################################################################################
-## 3.  Use descriptive activity names to name the activities in the data set  ##
-################################################################################
+# Join the subject, activity & data columns into a new table
+all <- tbl_df(cbind(s_all, y_all, x_allSelected))
 
-colnames(activities) <- c("activity.id", "activity.name")
-activities[, 2] <- gsub("_", ".", tolower(as.character(activities[, 2])))
-names(subject.merged) <- "subject.id"
-names(y.merged) <- "activity.name"
-y.merged[, 1] = activities[y.merged[, 1], 2]
+## STEP 5
 
-################################################################################
-## 4.  Appropriately label the data set with descriptive variable names       ##
-################################################################################
+# Generate a new data frame with the average for each data variable grouped by
+# Subject & Activity
+result <- all %>% group_by(Subject, Activity) %>% summarise_each(funs(mean))
 
-names(x.merged.abridged) <- features[features.indices, 2]
-tidydata <- cbind(subject.merged, y.merged, x.merged.abridged)
-write.table(tidydata, file = "tidydata_all.txt", sep = "|", row.name = FALSE)
-
-################################################################################
-##  5.  From the data set in step 4, create a second, independent tidy data   ##
-##  set with the average of each variable for each activity and each subject. ##
-################################################################################
-
-tidydata.averaged <- aggregate(. ~subject.id + activity.name, tidydata, mean)
-write.table(tidydata.averaged, file = "tidydata.txt", sep = ",", row.name = FALSE)
+## To write the resulting dataset use the following function
+# write.table(result, 'result.txt', row.names=FALSE)

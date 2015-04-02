@@ -1,79 +1,122 @@
----
-title: "Code Book for Coursera Getting and Cleaning Data Course Project"
-output: html_document
----
+# Human Activity Recognition Using Smartphones CodeBook
 
+This dataset is based on the experiments carried out by Jorge L. Reyes-Ortiz,
+Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Universitâ€¡ degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
 
-### References:
+## Data source
 
-Jorge L. Reyes-Ortiz(1,2), Davide Anguita(1), Alessandro Ghio(1), Luca Oneto(1) and Xavier Parra(2)
-1 - Smartlab - Non-Linear Complex Systems Laboratory
-DITEN - Università degli Studi di Genova, Genoa (I-16145), Italy. 
-2 - CETpD - Technical Research Centre for Dependency Care and Autonomous Living
-Universitat Politècnica de Catalunya (BarcelonaTech). Vilanova i la Geltrú (08800), Spain
-activityrecognition '@' smartlab.ws
+The data is available at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.
 
+For this experiment, the raw data was processed to obtain a tidy dataset.
+Test and Training data was merged, and only the average value for each measurement
+is included for each subject performing each activity.
 
-### Data Set Information:
+The processing is performed by the script `run_analysis.R`.
 
-The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+## IDs
 
-The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
++ **Subject**: Identify the subject who wear the smartphone during the experiment.
 
+30 subjects, identified with number 1 to 30, are included in this data.
 
-### Source Data:
++ **Activity**: Activity performed while the measurements were taken.
 
-A full description is available at the site where the data was obtained:  http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones.
+The possible values are: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING,
+STANDING, LAYING.
 
-Here are the data for the project:  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+## Measurements
 
+The prefix time, frequency or angle indicates the kind of measurement.
+Only mean and standard deviation has been included in the resulting dataset.
 
-### Variables and Transformations:
-**NOTE:  I have surrounded variable names with curly braces "{}" for ease of reading and following along**
-
-* Download and unzip the raw data
-    + Set variables
-        + {working.dir} = getwd()
-        + {file.url} = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-        + {zip.file} = "./getdata-projectfiles-UCI HAR Dataset.zip"
-        + {unzip.dir} = "./UCI HAR Dataset"
-        + {unzip.dir.path} = "/UCI HAR Dataset/"
-    + Download and unzip {file.url} which creates the {unzip.dir.path}.
-    + From the downloaded data, populate your initial data frames
-        + {x.train} from "X_train.txt", 7352 obs. of 561 variables
-        + {y.train} from "y_train.txt", 7352 obs. of 1 variables
-        + {subject.train} from "subject_train.txt", 7352 obs. of 1 variables
-        + {x.test} from "X_test.txt", 2947 obs. of 561 variables
-        + {y.test} from "y_test.txt", 2947 obs. of 1 variables
-        + {subject.test} from "subject_test.txt", 2947 obs. of 1 variables
-        + {features} from "features.txt", 561 obs. of 2 variables
-        + {activities} from "activity_labels.txt", 6 obs. of 2 variables
-    + Merge your initial data frames
-        + {x.merged}, 10299 obs. of 561 variables
-        + {y.merged}, 10299 obs. of 1 variables
-        + {subject.merged}, 10299 obs. of 1 variables
-    + Extract only mean and standard deviation measurements
-        + {features.indices}, numeric vector with 66 indices representing captured measurements
-            ```{r}
-            features.indices <- (grep("-mean\\(\\)|-std\\(\\)", features[, 2]))
-            ```
-        + {x.merged.abridged}, 10299 obs. of 66 variables filtered by {features.indices}
-    + Use descriptive names for activities
-        + ```{r}colnames(activities) <- c("activity.id", "activity.name")```
-        + ```{r}activities[, 2] <- gsub("_", ".", tolower(as.character(activities[, 2])))```
-        + ```{r}names(subject.merged) <- "subject.id"```
-        + ```{r}names(y.merged) <- "activity.name"```
-        + ```{r}y.merged[, 1] = activities[y.merged[, 1], 2]```
-    + Appropriately label the data with descriptive names
-        + {names(x.merged.abridged)} based upon values from {features[features.indices, 2]}
-    + Column bind {subject.merged}, {y.merged}, {x.merged.abridged} into {tidydata}
-    + Average measurements by subject.id and activity.name
-        + ```{r}tidydata.averaged <- aggregate(. ~subject.id + activity.name, tidydata, mean)```
-        
-        
-    
-    
-    
-    
-    
-    
++ time.BodyAcc.mean.X
++ time.BodyAcc.mean.Y
++ time.BodyAcc.mean.Z
++ time.GravityAcc.mean.X
++ time.GravityAcc.mean.Y
++ time.GravityAcc.mean.Z
++ time.BodyAccJerk.mean.X
++ time.BodyAccJerk.mean.Y
++ time.BodyAccJerk.mean.Z
++ time.BodyGyro.mean.X
++ time.BodyGyro.mean.Y
++ time.BodyGyro.mean.Z
++ time.BodyGyroJerk.mean.X
++ time.BodyGyroJerk.mean.Y
++ time.BodyGyroJerk.mean.Z
++ time.BodyAccMag.mean
++ time.GravityAccMag.mean
++ time.BodyAccJerkMag.mean
++ time.BodyGyroMag.mean
++ time.BodyGyroJerkMag.mean
++ frequency.BodyAcc.mean.X
++ frequency.BodyAcc.mean.Y
++ frequency.BodyAcc.mean.Z
++ frequency.BodyAcc.meanFreq.X
++ frequency.BodyAcc.meanFreq.Y
++ frequency.BodyAcc.meanFreq.Z
++ frequency.BodyAccJerk.mean.X
++ frequency.BodyAccJerk.mean.Y
++ frequency.BodyAccJerk.mean.Z
++ frequency.BodyAccJerk.meanFreq.X
++ frequency.BodyAccJerk.meanFreq.Y
++ frequency.BodyAccJerk.meanFreq.Z
++ frequency.BodyGyro.mean.X
++ frequency.BodyGyro.mean.Y
++ frequency.BodyGyro.mean.Z
++ frequency.BodyGyro.meanFreq.X
++ frequency.BodyGyro.meanFreq.Y
++ frequency.BodyGyro.meanFreq.Z
++ frequency.BodyAccMag.mean
++ frequency.BodyAccMag.meanFreq
++ frequency.BodyBodyAccJerkMag.mean
++ frequency.BodyBodyAccJerkMag.meanFreq
++ frequency.BodyBodyGyroMag.mean
++ frequency.BodyBodyGyroMag.meanFreq
++ frequency.BodyBodyGyroJerkMag.mean
++ frequency.BodyBodyGyroJerkMag.meanFreq
++ angle.tBodyAccMean.gravity
++ angle.tBodyAccJerkMean.gravityMean
++ angle.tBodyGyroMean.gravityMean
++ angle.tBodyGyroJerkMean.gravityMean
++ angle.X.gravityMean
++ angle.Y.gravityMean
++ angle.Z.gravityMean
++ time.BodyAcc.std.X
++ time.BodyAcc.std.Y
++ time.BodyAcc.std.Z
++ time.GravityAcc.std.X
++ time.GravityAcc.std.Y
++ time.GravityAcc.std.Z
++ time.BodyAccJerk.std.X
++ time.BodyAccJerk.std.Y
++ time.BodyAccJerk.std.Z
++ time.BodyGyro.std.X
++ time.BodyGyro.std.Y
++ time.BodyGyro.std.Z
++ time.BodyGyroJerk.std.X
++ time.BodyGyroJerk.std.Y
++ time.BodyGyroJerk.std.Z
++ time.BodyAccMag.std
++ time.GravityAccMag.std
++ time.BodyAccJerkMag.std
++ time.BodyGyroMag.std
++ time.BodyGyroJerkMag.std
++ frequency.BodyAcc.std.X
++ frequency.BodyAcc.std.Y
++ frequency.BodyAcc.std.Z
++ frequency.BodyAccJerk.std.X
++ frequency.BodyAccJerk.std.Y
++ frequency.BodyAccJerk.std.Z
++ frequency.BodyGyro.std.X
++ frequency.BodyGyro.std.Y
++ frequency.BodyGyro.std.Z
++ frequency.BodyAccMag.std
++ frequency.BodyBodyAccJerkMag.std
++ frequency.BodyBodyGyroMag.std
++ frequency.BodyBodyGyroJerkMag.std
