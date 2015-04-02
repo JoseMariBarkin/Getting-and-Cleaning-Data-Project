@@ -1,0 +1,141 @@
+This is the Codebook for the Run_Analysis.R file.
+
+This code book contains the explanation for all the variables and data points which are seen in the Tidy data set in the same folder.
+
+Here is the list of the Variables which are included in the Itdy data set:
+
+This is the Variable for recognising which subject/person performed the activity in the next column. 
+1       ID_of_the_person_wearing_the_device
+
+This variable identifies the activity performed by the subject
+2	Activity_performed_by_the_person
+
+These variables gives the X, Y and Z acceleration for the full body.
+3	tBodyAcc.mean...X
+4	tBodyAcc.mean...Y
+5	tBodyAcc.mean...Z
+
+These varibales give the mean for the acceleration caused by gravity
+6	tGravityAcc.mean...X
+7	tGravityAcc.mean...Y
+8	tGravityAcc.mean...Z
+
+These variables give X, Y and Z mean for the total body acceleration caused by jerky movements.
+9	tBodyAccJerk.mean...X
+10	tBodyAccJerk.mean...Y
+11	tBodyAccJerk.mean...Z
+
+These variables give X, Y and Z mean for the Gyroscopic measurements
+12	tBodyGyro.mean...X
+13	tBodyGyro.mean...Y
+14	tBodyGyro.mean...Z
+
+These variables give X, Y and Z mean for the gyroscopic mean measurement caused because of jerky movements
+15	tBodyGyroJerk.mean...X
+16	tBodyGyroJerk.mean...Y
+17	tBodyGyroJerk.mean...Z
+
+This variable gives the mean for magnitude for total body acceleration magnitude.
+18	tBodyAccMag.mean..
+
+This variable gives the mean for magnitude for total gravity acceleration magnitude.
+19	tGravityAccMag.mean..
+
+This varibale gives the mean for magnitude for total body acc caused by Jerky movement.
+20	tBodyAccJerkMag.mean..
+
+This varibale gives the mean for total body gyro magnitude 
+21	tBodyGyroMag.mean..
+
+This varibale gives the mean for total body gyro magnitude for jerky movements
+22	tBodyGyroJerkMag.mean..
+
+These variables give full body acc mean for X, Y and X axes.
+23	fBodyAcc.mean...X
+24	fBodyAcc.mean...Y
+25	fBodyAcc.mean...Z
+
+These variables give full body acc mean for X, Y and X axes Frequencies.
+26	fBodyAcc.meanFreq...X
+27	fBodyAcc.meanFreq...Y
+28	fBodyAcc.meanFreq...Z
+
+These variables give full body acc mean for X, Y and X axes jerk measurements.
+29	fBodyAccJerk.mean...X
+30	fBodyAccJerk.mean...Y
+31	fBodyAccJerk.mean...Z
+
+These variables give full body acc mean for X, Y and X axes mean frequencies.
+32	fBodyAccJerk.meanFreq...X
+33	fBodyAccJerk.meanFreq...Y
+34	fBodyAccJerk.meanFreq...Z
+
+These variables give full body gyroscopic mean for X, Y and X axes.
+35	fBodyGyro.mean...X
+36	fBodyGyro.mean...Y
+37	fBodyGyro.mean...Z
+
+These variables give full body gyroscopic mean for X, Y and X axes mean frequencies.
+38	fBodyGyro.meanFreq...X
+39	fBodyGyro.meanFreq...Y
+40	fBodyGyro.meanFreq...Z
+
+This variables give full body acc magnitude mean, average of mean frequencies, average of acc caused by jerky movements, Gyroscopic magnitude, gyroscopic magnitude of mean frequencies,gyro magnitude for jerk magnitude and jerk magnitude mean frequencies respectively,for X, Y and X axes.
+41	fBodyAccMag.mean..
+42	fBodyAccMag.meanFreq..
+43	fBodyBodyAccJerkMag.mean..
+44	fBodyBodyAccJerkMag.meanFreq..
+45	fBodyBodyGyroMag.mean..
+46	fBodyBodyGyroMag.meanFreq..
+47	fBodyBodyGyroJerkMag.mean..
+48	fBodyBodyGyroJerkMag.meanFreq..
+
+The variables give mean of standard deviations in X, y and Z axes for total body acceleration, acc caused by gravity, acceleration caused by jerky movments, and same set of observations as above for gyroscopic measurements. Same measurements are taken for full body measurements and the mean frequencies are also calculated. These variables are just the std measurements for the values for which mean is calculated above.
+49	tBodyAcc.std...X
+50	tBodyAcc.std...Y
+51	tBodyAcc.std...Z
+52	tGravityAcc.std...X
+53	tGravityAcc.std...Y
+54	tGravityAcc.std...Z
+55	tBodyAccJerk.std...X
+56	tBodyAccJerk.std...Y
+57	tBodyAccJerk.std...Z
+58	tBodyGyro.std...X
+59	tBodyGyro.std...Y
+60	tBodyGyro.std...Z
+61	tBodyGyroJerk.std...X
+62	tBodyGyroJerk.std...Y
+63	tBodyGyroJerk.std...Z
+64	tBodyAccMag.std..
+65	tGravityAccMag.std..
+66	tBodyAccJerkMag.std..
+67	tBodyGyroMag.std..
+68	tBodyGyroJerkMag.std..
+69	fBodyAcc.std...X
+70	fBodyAcc.std...Y
+71	fBodyAcc.std...Z
+72	fBodyAccJerk.std...X
+73	fBodyAccJerk.std...Y
+74	fBodyAccJerk.std...Z
+75	fBodyGyro.std...X
+76	fBodyGyro.std...Y
+77	fBodyGyro.std...Z
+78	fBodyAccMag.std..
+79	fBodyBodyAccJerkMag.std..
+80	fBodyBodyGyroMag.std..
+81	fBodyBodyGyroJerkMag.std..
+
+Here is the list of activities. 
+This data set includes mean value of all the means and STD gathered from the files provided for each person (subject_ID) for each Activity they performed. 
+
+1 WALKING
+ 
+2 WALKING_UPSTAIRS
+
+3 WALKING_DOWNSTAIRS
+
+4 SITTING
+
+5 STANDING
+
+6 LAYING
