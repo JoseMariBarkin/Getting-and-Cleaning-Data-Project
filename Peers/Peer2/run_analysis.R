@@ -1,17 +1,17 @@
 
-y_test.txt <- read.table("getdata-projectfiles-UCIHARDataset\\UCIHARDataset\\test\\y_test.txt")## Reading the Test labels
-X_test.txt <- read.table("getdata-projectfiles-UCIHARDataset\\UCIHARDataset\\test\\X_test.txt")  ## Reading the Test data of 561 columns
-subject_test.txt <- read.table("getdata-projectfiles-UCIHARDataset\\UCIHARDataset\\test\\subject_test.txt") ## Each perosn is given a subject Id which is saved in this file
+y_test.txt <- read.table("./test/y_test.txt")                       ## Reading the Test labels
+X_test.txt <- read.table("./test/X_test.txt")                       ## Reading the Test data of 561 columns
+subject_test.txt <- read.table("./test/subject_test.txt")           ## Each perosn is given a subject Id which is saved in this file
 
-y_train.txt <- read.table("getdata-projectfiles-UCIHARDataset\\UCIHARDataset\\train\\y_train.txt") ## Reading the Training labels
-X_train.txt <- read.table("getdata-projectfiles-UCIHARDataset\\UCIHARDataset\\train\\X_train.txt") ## Reading the Training data of 561 columns
-subject_train.txt <- read.table("getdata-projectfiles-UCIHARDataset\\UCIHARDataset\\train\\subject_train.txt") ## Each person is given a subject ID which is saved in this file
+y_train.txt <- read.table("./train/y_train.txt")                    ## Reading the Training labels
+X_train.txt <- read.table("./train/X_train.txt")                    ## Reading the Training data of 561 columns
+subject_train.txt <- read.table("./train/subject_train.txt")        ## Each person is given a subject ID which is saved in this file
 
 ## reading the features file which will become column names for the big data file
-Features.txt <- read.table("getdata-projectfiles-UCIHARDataset\\UCIHARDataset\\features.txt")
+Features.txt <- read.table("./features.txt")
 
-Test_dataset <- cbind(subject_test.txt,y_test.txt,X_test.txt) ## binding the test data set
-Train_dataset <- cbind(subject_train.txt,y_train.txt,X_train.txt) ## binding the training dataset
+Test_dataset <- cbind(subject_test.txt,y_test.txt,X_test.txt)       ## binding the test data set
+Train_dataset <- cbind(subject_train.txt,y_train.txt,X_train.txt)   ## binding the training dataset
 
 ##cleanup of data sets which wont be used later
 rm(y_test.txt) 

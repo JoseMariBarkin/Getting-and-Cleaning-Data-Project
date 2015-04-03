@@ -18,21 +18,21 @@
 library(dplyr)
 
 # read the common files
-featureList<-read.table("UCI HAR Dataset/features.txt",header=FALSE,sep=" ",stringsAsFactors = FALSE)
-activityLabels<-read.table("UCI HAR Dataset/activity_labels.txt",header=FALSE,sep=" ")
+featureList<-read.table("features.txt",header=FALSE,sep=" ",stringsAsFactors = FALSE)
+activityLabels<-read.table("activity_labels.txt",header=FALSE,sep=" ")
 
 # load up all the feature names
 newNames<-as.character(featureList[,2])
 
 # read the training dataset
-Xtrain<-read.table("UCI HAR Dataset/train/X_train.txt",header=FALSE)
-YTrain<-read.table("UCI HAR Dataset/train/Y_train.txt",header=FALSE,sep=" ")
-subjectsTrain<-read.table("UCI HAR Dataset/train/subject_train.txt",header=FALSE)
+Xtrain<-read.table("./train/X_train.txt",header=FALSE)
+YTrain<-read.table("./train/Y_train.txt",header=FALSE,sep=" ")
+subjectsTrain<-read.table("./train/subject_train.txt",header=FALSE)
 
 # read the test dataset
-Xtest<-read.table("UCI HAR Dataset/test/X_test.txt",header=FALSE)
-Ytest<-read.table("UCI HAR Dataset/test/Y_test.txt",header=FALSE,sep=" ")
-subjectsTest<-read.table("UCI HAR Dataset/test/subject_test.txt",header=FALSE)
+Xtest<-read.table("./test/X_test.txt",header=FALSE)
+Ytest<-read.table("./test/Y_test.txt",header=FALSE,sep=" ")
+subjectsTest<-read.table("./test/subject_test.txt",header=FALSE)
 
 # relabel Xtrain and Xtest
 names(Xtrain)=newNames
