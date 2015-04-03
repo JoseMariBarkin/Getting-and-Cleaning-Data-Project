@@ -1,4 +1,4 @@
-## Load the dplyr library, which provides a lot of convenient methods to
+## Load the dplyr library, which provides a lot of convenientx methods to
 ## manipulate tables
 library(dplyr)
 

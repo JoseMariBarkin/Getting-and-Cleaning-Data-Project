@@ -1,6 +1,6 @@
 ## This R script will do the following:
-## Merge training and test sets using only the measurements on the mean and standard deviation
-## Output is a second, independent tidy data set with the average of each variable for each activity and subject
+## Merge training and test sets using only the measurements on the mean and standard deviation Output is a second,
+## independent tidy data set with the average of each variable for each activity and subject
 
 if(!require("data.table")) {
         install.packages("data.table")
